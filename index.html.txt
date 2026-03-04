@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Nuvvalarevu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Nuvvalarevu</h1>
+    <p>No one left behind—every benefit for every villager.</p>
+  </header>
+
+  <nav>
+    <a href="#streets">Streets</a>
+    <a href="#report">Report Issue</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#dashboard">Dashboard</a>
+  </nav>
+
+  <section id="report">
+    <h2>Report an Issue</h2>
+    <form id="issueForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="street" placeholder="Street Name" required>
+      <select id="issueType" required>
+        <option value="">Select Issue</option>
+        <option>Electricity</option>
+        <option>Water</option>
+        <option>Pension</option>
+        <option>Blood Request</option>
+      </select>
+      <textarea id="description" placeholder="Describe the issue..." required></textarea>
+      <select id="priority" required>
+        <option value="Normal">Normal</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+      <input type="text" id="contact" placeholder="Phone Number" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="alertBanner" style="display:none; background:red; color:white; padding:10px;"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
