@@ -34,3 +34,58 @@ function checkUrgentIssues() {
 }
 setInterval(checkUrgentIssues, 30000);
 checkUrgentIssues();
+// Fetch all issues from backend
+function loadIssues() {
+  fetch(sheetURL + "?action=allIssues")
+    .then(response => response.json())
+    .then(data => {
+      const tbody = document.getElementById("issuesBody");
+      tbody.innerHTML = "";
+
+      data.forEach(issue => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${issue.ID}</td>
+          <td>${issue.Name}</td>
+          <td>${issue.Street}</td>
+          <td>${issue.IssueType}</td>
+          <td>${issue.Description}</td>
+          <td>${issue.Priority}</td>
+          <td>${issue.Contact}</td>
+          <td>${issue.Status}</td>
+          <td>
+            <select onchange="updateStatus(${issue.ID}, this.value)">
+              <option value="">--Change--</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </td>
+        `;
+
+        tbody.appendChild(row);
+      });
+    });
+}
+
+// Update status via backend
+function updateStatus(issueId, newStatus) {
+  fetch(sheetURL, {
+    method: "POST",
+    body: new URLSearchParams({
+      action: "updateStatus",
+      issueId: issueId,
+      newStatus: newStatus,
+      updatedBy: "Admin Bhupathi" // or dynamic admin name
+    })
+  })
+  .then(response => response.text())
+  .then(msg => {
+    alert(msg);
+    loadIssues(); // reload table after update
+  });
+}
+
+// Load issues when dashboard opens
+document.addEventListener("DOMContentLoaded", loadIssues);
