@@ -1,4 +1,4 @@
-const sheetURL = "https://script.google.com/macros/s/AKfycbxB3kTT31xot5JLsbdJnjhholZu2qn_HwBksXikj4Joaw_XKAxAW9eJPZhOOWoVa7MnJg/exec";
+const sheetURL = "https://script.google.com/macros/s/AKfycbxU3PXTCS3euWFjncOuE2CLRtSxe2U4j76l4sgfJ7sNA17Yt0mQPLuh6U6K9LZz10O8TA/exec";
 
 document.getElementById("issueForm").addEventListener("submit", function(e) {
   e.preventDefault();
