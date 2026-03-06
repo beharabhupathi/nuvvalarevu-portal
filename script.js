@@ -1,4 +1,4 @@
-const sheetURL = "YOUR_APPS_SCRIPT_WEB_APP_URL"; // Replace with your actual Apps Script URL
+const sheetURL = "https://script.google.com/macros/s/AKfycbxB3kTT31xot5JLsbdJnjhholZu2qn_HwBksXikj4Joaw_XKAxAW9eJPZhOOWoVa7MnJg/exec";
 
 document.getElementById("issueForm").addEventListener("submit", function(e) {
   e.preventDefault();
